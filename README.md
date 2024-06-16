@@ -25,7 +25,13 @@
 |name               |string      |null: false                   |
 |description        |text        |null: false                   |
 |price              |integer     |null: false                   |
-|user               |references  |null: false, foreign_key: true|
+|user               |references  |null: false                   |
+|category           |integer     |null: false                   |
+|condition          |integer     |null: false                   |
+|shipping_fee       |integer     |null: false                   |
+|prefecture         |integer     |null: false                   |
+|shipping_days      |integer     |null: false                   |
+
 
 ### Association
 
@@ -55,6 +61,7 @@
 |building_name      |string      |                              |
 |phone_number       |string      |null: false                   |
 |order              |references  |null: false, foreign_key: true|
+|prefecture         |integer     |null: false                   |
 
 ### Association
 

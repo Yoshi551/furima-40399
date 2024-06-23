@@ -9,6 +9,11 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
+  def show
+    @item = Item.show
+    
+  end
+
   def create
     @item = Item.new(item_params)
     @item.user = current_user

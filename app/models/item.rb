@@ -1,5 +1,4 @@
 class Item < ApplicationRecord
-  belongs_to :user
 
   validates :name, presence: true
   validates :description, presence: true
@@ -15,6 +14,7 @@ class Item < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
 
+  belongs_to :user
   belongs_to :category
   belongs_to :condition
   belongs_to :shipping_fee

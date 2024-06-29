@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destory]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :authorize_user!, only: [:edit, :update, :destroy]
 
   def index
@@ -33,6 +33,13 @@ class ItemsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    if current_user == @item.user
+      @item.destroy
+    end
+    redirect_to root_path
   end
 
   def authorize_user!

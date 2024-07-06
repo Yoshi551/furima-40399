@@ -69,19 +69,29 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
-  gem 'rspec-rails', '~> 4.0.0'
-  gem 'factory_bot_rails'
-  gem 'faker'
+  gem "rspec-rails", "~> 4.0.0"
+  gem "factory_bot_rails"
+  gem "faker"
 end
 
 group :development do
-  gem 'rubocop', require: false
+  gem "rubocop", require: false
 end
 
 group :production do
-  gem 'pg'
+  gem "pg"
 end
 
-gem 'devise'
+gem "devise"
 
-gem 'active_hash'
+gem "active_hash"
+
+group :test do
+  gem "rails-controller-testing"
+end
+
+gem "payjp"
+
+gem "gon"
+
+gem "pry-rails"

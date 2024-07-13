@@ -1,8 +1,7 @@
-# spec/factories/items.rb
 FactoryBot.define do
   factory :item do
-    name { "Test Item" }
-    description { "This is a test item." }
+    name { "Sample Item" }
+    description { "Sample Description" }
     price { 1000 }
     category_id { 2 }
     condition_id { 2 }
@@ -12,7 +11,12 @@ FactoryBot.define do
     association :user
 
     after(:build) do |item|
-      item.image.attach(io: File.open(Rails.root.join("spec", "fixtures", "files", "test_image.png")), filename: "test_image.png", content_type: "image/png")
+      file_path = Rails.root.join("spec", "fixtures", "files", "test_image.png")
+      if File.exist?(file_path)
+        item.image.attach(io: File.open(file_path), filename: "test_image.png", content_type: "image/png")
+      else
+        puts "File not found: #{file_path}"
+      end
     end
   end
 end
